@@ -1,10 +1,6 @@
 .node-container {
   margin-bottom: 2vw;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 675f3d4b385f62aad67c0efb7f6c4e7998bf8504
 .input-prompt-container {
   display: flex;
   align-items: center;
@@ -262,12 +258,8 @@
   height: 10vw;
   fill: #ec3333;
 }
-<<<<<<< HEAD
 .pzl + .input-prompt-container.open {
   margin-top: 2vw;
   margin-bottom: 0;
 }
 /*# sourceMappingURL=nodes.css.map */
-=======
-/*# sourceMappingURL=nodes.css.map */
->>>>>>> 675f3d4b385f62aad67c0efb7f6c4e7998bf8504
