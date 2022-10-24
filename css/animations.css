@@ -1,0 +1,21 @@
+@keyframes pump {
+  0% {
+    transform: scale(1);
+    color: #3390ec;
+    fill: #3390ec;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    color: #a2acb4;
+    fill: #a2acb4;
+  }
+}
+@keyframes scale-down {
+  to {
+    transform: scale(1.5);
+  }
+}
+/*# sourceMappingURL=animations.css.map */

@@ -1,0 +1,53 @@
+{
+  "class": "menu",
+  "items": {
+    "parse_messages": {
+      "text": "Парсинг сообщений",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu('data/menus/menu_parse_messages.json')"
+      }
+    },
+    "parse_users": {
+      "text": "Парсинг пользователей",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu()"
+      }
+    },
+    "mailing": {
+      "text": "Рассылка",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu()"
+      }
+    },
+    "inviter": {
+      "text": "Инвайтинг",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu()"
+      }
+    },
+    "auto_accept": {
+      "text": "Автоакцепт",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu()"
+      }
+    },
+    "auto_delete": {
+      "text": "Автоудаление сообщений",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu()"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "class": "menu",
+  "items": {
+    "functions": {
+      "text": "Функции",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu('data/menus/menu_funcs.json')"
+      }
+    },
+    "settings": {
+      "text": "Настройки",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu()"
+      }
+    }
+  }
+}

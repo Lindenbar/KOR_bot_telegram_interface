@@ -1,0 +1,35 @@
+.header__nav {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 4vw;
+  background-color: white;
+  -webkit-box-shadow: 0 0.5vw 0.5vw 0 rgba(10, 58, 105, 0.35);
+  -moz-box-shadow: 0 0.5vw 0.5vw 0 rgba(10, 58, 105, 0.35);
+  box-shadow: 0 -0.5vw 3.5vw 0 rgba(10, 58, 105, 0.35);
+}
+.header__nav .header__nav-arrow {
+  cursor: pointer;
+  font-size: 12vw;
+  color: #a2acb4;
+}
+.header__nav .header__nav-arrow.anim-pump {
+  animation: pump 0.3s;
+}
+#home {
+  margin-top: 1vw;
+  width: 8vw;
+  height: 8vw;
+  cursor: pointer;
+  fill: #a2acb4;
+}
+#home.anim-pump {
+  animation: pump 0.3s;
+}
+#home.anim-scale-up {
+  animation: scale-up 0.3s;
+}
+/*# sourceMappingURL=nav.css.map */

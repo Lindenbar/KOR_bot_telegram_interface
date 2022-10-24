@@ -1,0 +1,353 @@
+@import "colors";
+
+.node-container {
+  margin-bottom: 2vw;
+}
+
+.input-prompt-container {
+  display: flex;
+  align-items: center;
+
+  max-height: 0;
+
+  transition: 0.3s;
+  border-radius: 4vw;
+  background-color: @color-placeholder-light;
+  overflow: hidden;
+
+  font-size: 0;
+  color: transparent;
+
+  &.open {
+    padding: 4vw;
+    max-height: unset;
+    margin-bottom: 2vw;
+
+    font-size: 4.5vw;
+    color: @color-primary-dark;
+  }
+}
+
+.prompt-bubble:after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 8vw;
+  width: 8vw;
+
+  background-color: @color-placeholder-light;
+  border-radius: 50%;
+  cursor: pointer;
+
+  content: "?";
+  font-size: 5vw;
+  font-weight: 600;
+  color: @color-primary-shade-darker;
+}
+
+.btn {
+  padding: 2vw;
+
+  border: @color-primary 1vw solid;
+  border-radius: 4vw;
+
+  font-size: 6.9vw;
+  text-align: center;
+  color: @color-primary;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    background-color: @color-primary;
+    color: @color-light;
+  }
+}
+
+.inp {
+  width: 100%;
+  padding: 2vw 12vw 2vw 6vw;
+
+  border: @color-primary 1vw solid;
+  border-radius: 4vw;
+
+  font-size: 6vw;
+  color: @color-primary-dark;
+
+  &:focus {
+    background-color: @color-primary;
+    color: @color-light;
+    outline: none;
+
+    + .input-inner-container {
+      .input-required-icon:after {
+        color: @color-light;
+      }
+    }
+  }
+
+  &::placeholder {
+    color: @color-placeholder;
+  }
+
+  &:focus::placeholder {
+    color: @color-placeholder-light;
+  }
+
+  &:invalid {
+    border-color: @color-error-medium;
+
+    + .input-inner-container {
+      .input-required-icon:after {
+        color: @color-error-dark;
+      }
+
+      .prompt-bubble:after {
+        background-color: @color-error-light;
+        color: @color-error-dark;
+      }
+    }
+  }
+
+  &:focus:invalid {
+    background-color: @color-error-medium
+  }
+
+  + .input-inner-container {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: -2vw;
+    padding: 2vw;
+
+    .input-required-icon:after {
+      position: absolute;
+
+      margin-top: -13vw;
+
+      content: "*";
+      font-size: 8vw;
+      color: @color-primary-shade-darker;
+    }
+
+    .required-false {
+      visibility: hidden;
+    }
+
+    .prompt-bubble {
+      margin-top: -10.6vw;
+      margin-left: -8vw;
+    }
+  }
+}
+
+.tgl-content-container {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 2vw;
+
+  .prompt-bubble:after {
+    margin-right: 2vw;
+  }
+
+  .tgl {
+    display: inline-flex;
+    align-items: center;
+
+    width: 100%;
+
+    cursor: pointer;
+
+    .toggle-slider {
+      width: 24vw;
+      height: 12vw;
+      margin-right: 2vw;
+
+      border-radius: 8vw;
+      background-color: @color-placeholder-second;
+
+      .toggle-btn {
+        height: 12vw;
+        width: 12vw;
+
+        transition: 0.3s;
+        border: 1vw solid @color-placeholder-second;
+        border-radius: 50%;
+        background-color: @color-placeholder;
+      }
+    }
+
+    .toggle-text {
+      display: flex;
+      align-items: center;
+
+      font-size: 4.5vw;
+      color: @color-primary-dark;
+    }
+
+    input:checked {
+      + .toggle-slider {
+        background-color: @color-placeholder-light;
+
+        .toggle-btn {
+          border-color: @color-placeholder-light;
+          background-color: @color-primary;
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
+}
+
+.pzl {
+  padding: 2vw;
+
+  border: 1vw solid @color-primary;
+  border-radius: 4vw;
+
+  .puzzle__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .puzzle__title {
+      font-size: 6vw;
+      margin-left: 4vw;
+      color: @color-primary-dark;
+    }
+
+    .prompt-bubble {
+      margin-right: -1vw;
+    }
+  }
+
+  .puzzle__result {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    min-height: 14vw;
+
+
+    border-radius: 0.8vw;
+    border: 1px solid @color-placeholder;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1vw;
+      margin: 0.5vw;
+      height: fit-content;
+      min-width: 10vw;
+
+      cursor: grab;
+      border-radius: 0.8vw;
+
+      font-size: 4.5vw;
+    }
+
+    .result__val {
+      background-color: @color-placeholder-second;
+      color: @color-primary-dark;
+    }
+
+    .result__cond {
+      background-color: @color-primary;
+      color: @color-light;
+    }
+  }
+
+  .puzzle__buttons {
+    display: flex;
+    justify-content: space-evenly;
+
+    padding: 2vw;
+
+    margin-bottom: 2vw;
+
+    .puzzle__btn {
+      padding: 0.8vw;
+      min-width: 15vw;
+
+      cursor: pointer;
+      border-radius: 0.8vw;
+      background-color: @color-primary;
+
+      text-align: center;
+      color: @color-light;
+      font-size: 4.5vw;
+    }
+  }
+
+  .puzzle__input {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      margin-right: 1vw;
+      padding: 1vw 4vw;
+
+      border-width: 1px;
+    }
+
+    .puzzle__add {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 8vw;
+      padding: 1vw;
+
+      cursor: pointer;
+      border-radius: 4vw;
+      border: 1px solid @color-primary;
+      background-color: @color-primary;
+      color: @color-light;
+      font-size: 6vw;
+
+      &:after {
+        content: "-";
+        position: absolute;
+        z-index: -100;
+
+        padding: 1vw;
+        width: 15vw;
+        transform: translateX(-4.5vw);
+
+        background-color: @color-primary;
+        border: 1px solid @color-primary;
+        border-radius: 4vw;
+
+        font-size: 6vw;
+      }
+    }
+  }
+
+  .puzzle__trash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2vw;
+
+    background-color: @color-error-light;
+    border-radius: 0.8vw;
+    border: 1px solid @color-error;
+
+    .trash {
+      width: 10vw;
+      height: 10vw;
+
+      fill: @color-error;
+    }
+  }
+
+  + .input-prompt-container.open {
+    margin-top: 2vw;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,273 @@
+.node-container {
+  margin-bottom: 2vw;
+}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 675f3d4b385f62aad67c0efb7f6c4e7998bf8504
+.input-prompt-container {
+  display: flex;
+  align-items: center;
+  max-height: 0;
+  transition: 0.3s;
+  border-radius: 4vw;
+  background-color: #e8f3ff;
+  overflow: hidden;
+  font-size: 0;
+  color: transparent;
+}
+.input-prompt-container.open {
+  padding: 4vw;
+  max-height: unset;
+  margin-bottom: 2vw;
+  font-size: 4.5vw;
+  color: #0a3a69;
+}
+.prompt-bubble:after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vw;
+  width: 8vw;
+  background-color: #e8f3ff;
+  border-radius: 50%;
+  cursor: pointer;
+  content: "?";
+  font-size: 5vw;
+  font-weight: 600;
+  color: #2b79c6;
+}
+.btn {
+  padding: 2vw;
+  border: #3390ec 1vw solid;
+  border-radius: 4vw;
+  font-size: 6.9vw;
+  text-align: center;
+  color: #3390ec;
+}
+.btn:hover,
+.btn:active {
+  cursor: pointer;
+  background-color: #3390ec;
+  color: white;
+}
+.inp {
+  width: 100%;
+  padding: 2vw 12vw 2vw 6vw;
+  border: #3390ec 1vw solid;
+  border-radius: 4vw;
+  font-size: 6vw;
+  color: #0a3a69;
+}
+.inp:focus {
+  background-color: #3390ec;
+  color: white;
+  outline: none;
+}
+.inp:focus + .input-inner-container .input-required-icon:after {
+  color: white;
+}
+.inp::placeholder {
+  color: #a2acb4;
+}
+.inp:focus::placeholder {
+  color: #e8f3ff;
+}
+.inp:invalid {
+  border-color: #f15959;
+}
+.inp:invalid + .input-inner-container .input-required-icon:after {
+  color: #af1212;
+}
+.inp:invalid + .input-inner-container .prompt-bubble:after {
+  background-color: #ffe8e8;
+  color: #af1212;
+}
+.inp:focus:invalid {
+  background-color: #f15959;
+}
+.inp + .input-inner-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -2vw;
+  padding: 2vw;
+}
+.inp + .input-inner-container .input-required-icon:after {
+  position: absolute;
+  margin-top: -13vw;
+  content: "*";
+  font-size: 8vw;
+  color: #2b79c6;
+}
+.inp + .input-inner-container .required-false {
+  visibility: hidden;
+}
+.inp + .input-inner-container .prompt-bubble {
+  margin-top: -10.6vw;
+  margin-left: -8vw;
+}
+.tgl-content-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vw;
+}
+.tgl-content-container .prompt-bubble:after {
+  margin-right: 2vw;
+}
+.tgl-content-container .tgl {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+}
+.tgl-content-container .tgl .toggle-slider {
+  width: 24vw;
+  height: 12vw;
+  margin-right: 2vw;
+  border-radius: 8vw;
+  background-color: #d7dfec;
+}
+.tgl-content-container .tgl .toggle-slider .toggle-btn {
+  height: 12vw;
+  width: 12vw;
+  transition: 0.3s;
+  border: 1vw solid #d7dfec;
+  border-radius: 50%;
+  background-color: #a2acb4;
+}
+.tgl-content-container .tgl .toggle-text {
+  display: flex;
+  align-items: center;
+  font-size: 4.5vw;
+  color: #0a3a69;
+}
+.tgl-content-container .tgl input:checked + .toggle-slider {
+  background-color: #e8f3ff;
+}
+.tgl-content-container .tgl input:checked + .toggle-slider .toggle-btn {
+  border-color: #e8f3ff;
+  background-color: #3390ec;
+  transform: translateX(100%);
+}
+.pzl {
+  padding: 2vw;
+  border: 1vw solid #3390ec;
+  border-radius: 4vw;
+}
+.pzl .puzzle__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pzl .puzzle__header .puzzle__title {
+  font-size: 6vw;
+  margin-left: 4vw;
+  color: #0a3a69;
+}
+.pzl .puzzle__header .prompt-bubble {
+  margin-right: -1vw;
+}
+.pzl .puzzle__result {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  min-height: 14vw;
+  border-radius: 0.8vw;
+  border: 1px solid #a2acb4;
+}
+.pzl .puzzle__result span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1vw;
+  margin: 0.5vw;
+  height: fit-content;
+  min-width: 10vw;
+  cursor: grab;
+  border-radius: 0.8vw;
+  font-size: 4.5vw;
+}
+.pzl .puzzle__result .result__val {
+  background-color: #d7dfec;
+  color: #0a3a69;
+}
+.pzl .puzzle__result .result__cond {
+  background-color: #3390ec;
+  color: white;
+}
+.pzl .puzzle__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2vw;
+  margin-bottom: 2vw;
+}
+.pzl .puzzle__buttons .puzzle__btn {
+  padding: 0.8vw;
+  min-width: 15vw;
+  cursor: pointer;
+  border-radius: 0.8vw;
+  background-color: #3390ec;
+  text-align: center;
+  color: white;
+  font-size: 4.5vw;
+}
+.pzl .puzzle__input {
+  display: flex;
+  align-items: center;
+}
+.pzl .puzzle__input input {
+  width: 100%;
+  margin-right: 1vw;
+  padding: 1vw 4vw;
+  border-width: 1px;
+}
+.pzl .puzzle__input .puzzle__add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8vw;
+  padding: 1vw;
+  cursor: pointer;
+  border-radius: 4vw;
+  border: 1px solid #3390ec;
+  background-color: #3390ec;
+  color: white;
+  font-size: 6vw;
+}
+.pzl .puzzle__input .puzzle__add:after {
+  content: "-";
+  position: absolute;
+  z-index: -100;
+  padding: 1vw;
+  width: 15vw;
+  transform: translateX(-4.5vw);
+  background-color: #3390ec;
+  border: 1px solid #3390ec;
+  border-radius: 4vw;
+  font-size: 6vw;
+}
+.pzl .puzzle__trash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vw;
+  background-color: #ffe8e8;
+  border-radius: 0.8vw;
+  border: 1px solid #ec3333;
+}
+.pzl .puzzle__trash .trash {
+  width: 10vw;
+  height: 10vw;
+  fill: #ec3333;
+}
+<<<<<<< HEAD
+.pzl + .input-prompt-container.open {
+  margin-top: 2vw;
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=nodes.css.map */
+=======
+/*# sourceMappingURL=nodes.css.map */
+>>>>>>> 675f3d4b385f62aad67c0efb7f6c4e7998bf8504

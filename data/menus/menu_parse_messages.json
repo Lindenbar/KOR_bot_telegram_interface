@@ -1,0 +1,50 @@
+{
+  "class": "menu",
+  "items": {
+    "id": {
+      "placeholder": "Идентификатор чата",
+      "node": "input",
+      "type": "text",
+      "class": "inp",
+      "required": true,
+      "prompt": "Chat identification",
+      "pattern": "55555"
+    },
+    "keywords": {
+      "text": "Ключевые слова",
+      "node": "puzzle",
+      "class": "pzl",
+      "prompt": "Chat identification",
+      "puzzles": {
+        "and": "И",
+        "or": "ИЛИ",
+        "not": "НЕ"
+      }
+    },
+    "count": {
+      "placeholder": "Количество сообщений",
+      "node": "input",
+      "type": "text",
+      "class": "inp",
+      "required": false,
+      "prompt": "Chat identification",
+      "pattern": ""
+    },
+    "caption": {
+      "text": "Парсить подписи",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Parse captions"
+    },
+    "text": {
+      "text": "Парсить текст",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Parse text"
+    }
+  }
+}
