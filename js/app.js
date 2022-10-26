@@ -4,14 +4,14 @@ telegram.expand();
 
 Telegram.WebApp.onEvent("mainButtonClicked", () => {
     let dataNodes = document.querySelectorAll('input[data-name], div[data-name]');
-    let sendData = {}
+    let dataToSend = {}
     for (let data of dataNodes) {
         let dataName = data.getAttribute('data-name');
         let dataVal = data.getAttribute('data');
         let nodeType = data.getAttribute('type');
 
         if (dataVal) {
-            sendData[dataName] = {
+            dataToSend[dataName] = {
                 type: nodeType,
                 value: dataVal
             }
@@ -21,6 +21,6 @@ Telegram.WebApp.onEvent("mainButtonClicked", () => {
         }
     }
 
-    console.log(sendData);
-    telegram.sendData(sendData);
+    dataToSend = JSON.stringify(dataToSend);
+    telegram.sendData(dataToSend);
 });
