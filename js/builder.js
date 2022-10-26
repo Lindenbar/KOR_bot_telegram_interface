@@ -23,7 +23,7 @@ async function button(className, text, actions) {
     return container;
 }
 
-async function inputText(className, placeholder, required, prompt, pattern) {
+async function inputText(className, placeholder, required, prompt, pattern, dataName) {
     let container = document.createElement('div');
     let input = document.createElement('input');
     let innerContainer = document.createElement('div');
@@ -36,6 +36,7 @@ async function inputText(className, placeholder, required, prompt, pattern) {
     innerContainer.classList.add('input-inner-container');
     promptContainer.classList.add('input-prompt-container');
     input.classList.add(className);
+    input.setAttribute('data-name', dataName);
     input.setAttribute('type', 'text');
     input.setAttribute('placeholder', placeholder);
     if (required) {
@@ -62,10 +63,20 @@ async function inputText(className, placeholder, required, prompt, pattern) {
         input.setAttribute('pattern', pattern);
     }
 
+    input.oninput = () => {
+        if (input.validity.valid) {
+            input.setAttribute('data', input.value);
+        } else {
+            if (input.getAttribute('data')) {
+                input.removeAttribute('data');
+            }
+        }
+    }
+
     return container;
 }
 
-async function toggle(className, text, active, prompt) {
+async function toggle(className, text, active, prompt, dataName) {
     let container = document.createElement('div');
     let innerContainer = document.createElement('label');
     let toggle = document.createElement('input');
@@ -96,17 +107,22 @@ async function toggle(className, text, active, prompt) {
     active ? toggle.setAttribute('checked', active) : false;
     toggle.setAttribute('type', 'checkbox');
     toggle.setAttribute('hidden', '');
+    toggle.setAttribute('data-name', dataName);
+    toggle.setAttribute('data', String(toggle.checked));
     textContainer.innerText = text;
     textContainer.classList.add('toggle-text');
     toggleSlider.classList.add('toggle-slider');
     promptBubble.onclick = () => {
         promptContainer.classList.toggle('open');
     }
+    toggle.onclick = () => {
+        toggle.setAttribute('data', String(toggle.checked));
+    }
 
     return container;
 }
 
-async function puzzle(className, text, puzzles, prompt) {
+async function puzzle(className, text, puzzles, prompt, dataName) {
     let container = document.createElement('div');
     let puzzle = document.createElement('div');
     let puzzleHeader = document.createElement('div');
@@ -120,6 +136,17 @@ async function puzzle(className, text, puzzles, prompt) {
     let puzzleBucket = document.createElement('div');
     let puzzlePrompt = document.createElement('div');
     let puzzleTrash = document.createElement('div');
+    let observer = new MutationObserver(() => {
+        let data = '';
+        [...puzzleResult.querySelectorAll('span')].forEach(elem => {
+            data += elem.getAttribute('data');
+        });
+        if (data !== '') {
+            puzzleResult.setAttribute('data', data);
+        } else {
+            puzzleResult.removeAttribute('data');
+        }
+    });
 
     container.appendChild(puzzle);
     container.appendChild(puzzlePrompt);
@@ -142,6 +169,7 @@ async function puzzle(className, text, puzzles, prompt) {
             let resultPuzzleCond = document.createElement('span');
             resultPuzzleCond.innerText = puzzles[puzzle];
             resultPuzzleCond.classList.add('result__cond');
+            resultPuzzleCond.setAttribute('data', puzzle + '___');
             puzzleResult.appendChild(resultPuzzleCond);
             puzzleInput.focus();
         }
@@ -152,6 +180,7 @@ async function puzzle(className, text, puzzles, prompt) {
                 let resultPuzzleVal = document.createElement('span');
                 resultPuzzleVal.innerText = inp_value;
                 resultPuzzleVal.classList.add('result__val');
+                resultPuzzleVal.setAttribute('data', inp_value + '___');
                 puzzleResult.appendChild(resultPuzzleVal);
             }
             puzzleInput.focus();
@@ -173,6 +202,8 @@ async function puzzle(className, text, puzzles, prompt) {
     puzzleTrash.classList.add('puzzle__trash');
     puzzlePromptBubble.classList.add('prompt-bubble');
     puzzleResult.classList.add('puzzle__result');
+    puzzleResult.setAttribute('data-name', dataName);
+    puzzleResult.setAttribute('type', 'puzzle');
     puzzleButtons.classList.add('puzzle__buttons');
     puzzleInputContainer.classList.add('puzzle__input');
     puzzleBucket.classList.add('puzzle__bucket');
@@ -188,6 +219,8 @@ async function puzzle(className, text, puzzles, prompt) {
         }
     });
 
+    observer.observe(puzzleResult, { childList: true });
+
     return container;
 }
 
@@ -195,9 +228,21 @@ async function buildMenu(menuDataPath, container = document.querySelector('.cont
     let menuData = await getJson(menuDataPath);
     let menuContainer = document.createElement('div');
     let menuClassName = menuData['class'];
+    let title = menuData['title'];
     let items = menuData['items'];
+    let type = menuData['type'];
+
+    type === 'settings' ? telegram.MainButton.show() : telegram.MainButton.hide();
 
     menuContainer.classList.add(menuClassName);
+
+    if (title) {
+        let menuTitle = document.createElement('h1');
+        menuTitle.innerText = title;
+        menuTitle.classList.add('menu-title');
+        menuContainer.appendChild(menuTitle);
+    }
+
 
     for (let item in items) {
         switch (items[item]['node']) {
@@ -205,7 +250,7 @@ async function buildMenu(menuDataPath, container = document.querySelector('.cont
                 let btnClassName = items[item]['class'];
                 let btnText = items[item]['text'];
                 let btnActions = items[item]['actions'];
-                await menuContainer.appendChild(await button(btnClassName, btnText, btnActions));
+                await menuContainer.appendChild(await button(btnClassName, btnText, btnActions, item));
                 break;
             case 'input':
                 if (items[item]['type'] === 'text') {
@@ -214,13 +259,13 @@ async function buildMenu(menuDataPath, container = document.querySelector('.cont
                     let inputRequired = items[item]['required'];
                     let inputPrompt = items[item]['prompt'];
                     let inputPattern = items[item]['pattern'];
-                    await menuContainer.appendChild(await inputText(inputClassName, inputPlaceholder, inputRequired, inputPrompt, inputPattern));
+                    await menuContainer.appendChild(await inputText(inputClassName, inputPlaceholder, inputRequired, inputPrompt, inputPattern, item));
                 } else if (items[item]['type'] === 'checkbox') {
                     let inputClassName = items[item]['class'];
                     let inputText = items[item]['text'];
                     let inputPrompt = items[item]['prompt'];
                     let inputActive = items[item]['active'];
-                    await menuContainer.appendChild(await toggle(inputClassName, inputText, inputActive, inputPrompt));
+                    await menuContainer.appendChild(await toggle(inputClassName, inputText, inputActive, inputPrompt, item));
 
                 }
                 break;
@@ -229,7 +274,7 @@ async function buildMenu(menuDataPath, container = document.querySelector('.cont
                 let puzzleText = items[item]['text'];
                 let puzzlePrompt = items[item]['prompt'];
                 let puzzlePuzzles = items[item]['puzzles'];
-                await menuContainer.appendChild(await puzzle(puzzleClassName, puzzleText, puzzlePuzzles, puzzlePrompt));
+                await menuContainer.appendChild(await puzzle(puzzleClassName, puzzleText, puzzlePuzzles, puzzlePrompt, item));
                 break;
         }
     }

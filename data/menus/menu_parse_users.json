@@ -1,6 +1,6 @@
 {
   "class": "menu",
-  "title": "Парсинг сообщений",
+  "title": "Парсинг пользователей",
   "type": "settings",
   "items": {
     "id": {
@@ -10,7 +10,7 @@
       "class": "inp",
       "required": true,
       "prompt": "Chat identification",
-      "pattern": "55555"
+      "pattern": ""
     },
     "keywords": {
       "text": "Ключевые слова",
@@ -24,29 +24,29 @@
       }
     },
     "count": {
-      "placeholder": "Количество сообщений",
+      "placeholder": "Количество юзеров",
       "node": "input",
       "type": "text",
       "class": "inp",
       "required": false,
-      "prompt": "Chat identification",
+      "prompt": "В",
       "pattern": ""
     },
-    "caption": {
-      "text": "Парсить подписи",
+    "bots": {
+      "text": "Парсить ботов",
       "node": "input",
       "type": "checkbox",
       "class": "tgl",
-      "active": true,
-      "prompt": "Parse captions"
+      "active": false,
+      "prompt": "Залупа"
     },
-    "text": {
-      "text": "Парсить текст",
+    "premium": {
+      "text": "Парсить пользователей без юзернейма",
       "node": "input",
       "type": "checkbox",
       "class": "tgl",
-      "active": true,
-      "prompt": "Parse text"
+      "active": false,
+      "prompt": "Жопа"
     }
   }
 }

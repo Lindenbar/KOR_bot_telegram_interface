@@ -1,6 +1,13 @@
 .node-container {
   margin-bottom: 2vw;
 }
+.menu-title {
+  margin-bottom: 4vw;
+  font-size: 6vw;
+  text-align: center;
+  color: #0a3a69;
+  font-weight: 500;
+}
 .input-prompt-container {
   display: flex;
   align-items: center;
@@ -113,7 +120,6 @@
 .tgl-content-container .tgl {
   display: inline-flex;
   align-items: center;
-  width: 100%;
   cursor: pointer;
 }
 .tgl-content-container .tgl .toggle-slider {
@@ -134,6 +140,7 @@
 .tgl-content-container .tgl .toggle-text {
   display: flex;
   align-items: center;
+  width: 53vw;
   font-size: 4.5vw;
   color: #0a3a69;
 }
