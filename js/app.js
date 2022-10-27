@@ -24,3 +24,5 @@ Telegram.WebApp.onEvent("mainButtonClicked", () => {
     dataToSend = JSON.stringify(dataToSend);
     telegram.sendData(dataToSend);
 });
+
+telegram.sendData('test');
