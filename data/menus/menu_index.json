@@ -14,7 +14,7 @@
       "node": "button",
       "class": "btn",
       "actions": {
-        "click": "buildMenu()"
+        "click": "buildMenu('data/menus/menu_setts.json')"
       }
     }
   }

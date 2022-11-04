@@ -1,21 +1,42 @@
 @keyframes pump {
   0% {
     transform: scale(1);
-    color: #3390ec;
-    fill: #3390ec;
   }
   50% {
     transform: scale(1.2);
   }
   100% {
     transform: scale(1);
-    color: #a2acb4;
-    fill: #a2acb4;
   }
 }
 @keyframes scale-down {
   to {
-    transform: scale(1.5);
+    transform: scale(0);
+  }
+}
+@keyframes bubble-open {
+  to {
+    transform: rotate(720deg);
+  }
+  50% {
+    font-size: 4vw;
+  }
+  70% {
+    content: '\2014';
+  }
+  100% {
+    content: '\2014';
+  }
+}
+@keyframes bubble-closed {
+  to {
+    transform: rotate(-720deg);
+  }
+  50% {
+    font-size: 5vw;
+  }
+  70% {
+    content: '?';
   }
 }
 /*# sourceMappingURL=animations.css.map */

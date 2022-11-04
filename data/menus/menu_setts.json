@@ -1,0 +1,13 @@
+{
+  "class": "menu",
+  "items": {
+    "add_user_bot": {
+      "text": "Юзерботы",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "buildMenu('data/menus/menu_userbots.json')"
+      }
+    }
+  }
+}

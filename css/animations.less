@@ -1,23 +1,44 @@
-@import "colors";
-
 @keyframes pump {
   0% {
     transform: scale(1);
-    color: @color-primary;
-    fill: @color-primary;
   }
   50% {
     transform: scale(1.2);
   }
   100% {
     transform: scale(1);
-    color: @color-placeholder;
-    fill: @color-placeholder;
   }
 }
 
 @keyframes scale-down {
   to {
-    transform: scale(1.5);
+    transform: scale(0);
+  }
+}
+
+@keyframes bubble-open {
+  to {
+    transform: rotate(720deg);
+  }
+  50% {
+    font-size: 4vw;
+  }
+  70% {
+    content: '\2014';
+  }
+  100% {
+    content: '\2014';
+  }
+}
+
+@keyframes bubble-closed {
+  to {
+    transform: rotate(-720deg);
+  }
+  50% {
+    font-size: 5vw;
+  }
+  70% {
+    content: '?';
   }
 }

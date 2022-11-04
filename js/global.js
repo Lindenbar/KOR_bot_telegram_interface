@@ -1,3 +1,25 @@
+const settings = {
+    host: 'http://localhost:8080/'
+}
+
+let themeDarkColors = {
+    '--color-base-text': 'black',
+    '--color-primary': '#8774e1',
+    '--color-primary-shade': '#877dcc',
+    '--color-primary-shade-darker': '#b5a5ff',
+    '--color-primary-dark': 'white',
+    '--color-primary-dark-transparent': 'rgba(199, 152, 255, 0.35)',
+    '--color-light': '#212121',
+    '--color-placeholder': '#c0c0c0',
+    '--color-placeholder-second': '#4b4b4b',
+    '--color-placeholder-light': '#313131',
+    '--color-error-lighten': '#2a2a2a',
+    '--color-error-light': '#5e3838',
+    '--color-error-medium': '#a95656',
+    '--color-error': '#e17474',
+    '--color-error-dark': '#f54747',
+}
+
 let historyIndex = (() => {
     if (window.localStorage.getItem('historyIndex')) {
         return Number(window.localStorage.getItem('historyIndex'));

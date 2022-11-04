@@ -1,5 +1,3 @@
-@import "colors";
-
 .header__nav {
   display: flex;
   position: fixed;
@@ -10,19 +8,21 @@
   width: 100%;
   padding: 0 4vw;
 
-  background-color: @color-light;
-  -webkit-box-shadow: 0 0.5vw 0.5vw 0 @color-primary-dark-transparent;
-  -moz-box-shadow: 0 0.5vw 0.5vw 0 @color-primary-dark-transparent;
-  box-shadow: 0 -0.5vw 3.5vw 0 @color-primary-dark-transparent;
+  background-color: var(--color-light);
+  -webkit-box-shadow: 0 0.5vw 0.5vw 0 var(--color-primary-dark-transparent);
+  -moz-box-shadow: 0 0.5vw 0.5vw 0 var(--color-primary-dark-transparent);
+  box-shadow: 0 -0.5vw 3.5vw 0 var(--color-primary-dark-transparent);
 
   .header__nav-arrow {
     cursor: pointer;
 
     font-size: 12vw;
-    color: @color-placeholder;
+    color: var(--color-placeholder);
 
     &.anim-pump {
       animation: pump 0.3s;
+      color: var(--color-primary);
+      fill: var(--color-primary);
     }
   }
 }
@@ -33,7 +33,7 @@
   height: 8vw;
 
   cursor: pointer;
-  fill: @color-placeholder;
+  fill: var(--color-placeholder);
 
   &.anim-pump {
     animation: pump 0.3s;

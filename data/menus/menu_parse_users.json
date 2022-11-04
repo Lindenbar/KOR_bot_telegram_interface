@@ -2,6 +2,7 @@
   "class": "menu",
   "title": "Парсинг пользователей",
   "type": "settings",
+  "query": "parse_users",
   "items": {
     "id": {
       "placeholder": "Идентификатор чата",
@@ -32,21 +33,125 @@
       "prompt": "В",
       "pattern": ""
     },
+    "result_name": {
+      "placeholder": "Название результата",
+      "node": "input",
+      "type": "text",
+      "class": "inp",
+      "required": false,
+      "prompt": "В",
+      "pattern": ""
+    },
+    "user/bot": {
+      "node": "splitter",
+      "title": "Пользователь/бот"
+    },
+    "premium": {
+      "text": "<u>c</u>&nbsp;<b>премиум</b>&nbsp;аккаунтом",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Жопа"
+    },
+    "without_premium": {
+      "text": "<u>без</u>&nbsp;<b>премиум</b>&nbsp;аккаунта",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Жопа"
+    },
+    "fake": {
+      "text": "в статусе&nbsp;<b>фейк</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Жопа"
+    },
+    "restricted": {
+      "text": "в статусе&nbsp;<b>ограничен</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Жопа"
+    },
+    "fraud": {
+      "text": "в статусе&nbsp;<b>мошенник</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": false,
+      "prompt": "Жопа"
+    },
     "bots": {
-      "text": "Парсить ботов",
+      "text": "в статусе&nbsp;<b>бот</b>",
       "node": "input",
       "type": "checkbox",
       "class": "tgl",
       "active": false,
       "prompt": "Залупа"
     },
-    "premium": {
-      "text": "Парсить пользователей без юзернейма",
+    "without_username": {
+      "text": "<u>без</u>&nbsp;юзернейма",
       "node": "input",
       "type": "checkbox",
       "class": "tgl",
       "active": false,
       "prompt": "Жопа"
+    },
+    "user/bot_end": {
+      "node": "splitter_end"
+    },
+    "output": {
+      "node": "splitter",
+      "title": "Записать результат"
+    },
+    "database": {
+      "text": "в базу данных",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Жопа"
+    },
+    "file_xls": {
+      "text": "в файл&nbsp;<b>.xls</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": false,
+      "prompt": "Жопа"
+    },
+    "file_xlsx": {
+      "text": "в файл&nbsp;<b>.xlsx</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": false,
+      "prompt": "Жопа"
+    },
+    "file_csv": {
+      "text": "в файл&nbsp;<b>.csv</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": false,
+      "prompt": "Жопа"
+    },
+    "output_end": {
+      "node": "splitter_end"
+    },
+    "userbot": {
+      "title": "Выберите юзербота",
+      "node": "select",
+      "class": "slt",
+      "options": "request:get_userbots",
+      "deep_data": "['name']",
+      "required": true,
+      "prompt": "Chat identification"
     }
   }
 }

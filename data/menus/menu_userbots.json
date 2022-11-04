@@ -1,0 +1,120 @@
+{
+  "class": "menu",
+  "title": "Юзерботы",
+  "type": "settings",
+  "items": {
+    "add_userbot_area": {
+      "node": "splitter",
+      "title": "Добавить юзербота"
+    },
+    "name": {
+      "placeholder": "Название юзербота",
+      "node": "input",
+      "type": "text",
+      "class": "inp",
+      "attributes": {
+        "client_data": ""
+      },
+      "required": true,
+      "prompt": "<a href='https://my.telegram.org/auth'>https://my.telegram.org/auth</a>",
+      "pattern": ""
+    },
+    "api_id": {
+      "placeholder": "App api_id",
+      "node": "input",
+      "type": "text",
+      "class": "inp",
+      "attributes": {
+        "client_data": ""
+      },
+      "required": true,
+      "prompt": "<a href='https://my.telegram.org/auth'>https://my.telegram.org/auth</a>",
+      "pattern": ""
+    },
+    "api_hash": {
+      "placeholder": "App api_hash",
+      "node": "input",
+      "type": "text",
+      "class": "inp",
+      "attributes": {
+        "client_data": ""
+      },
+      "required": true,
+      "prompt": "<a href='https://my.telegram.org/auth'>https://my.telegram.org/auth</a>",
+      "pattern": ""
+    },
+    "phone_number": {
+      "placeholder": "Номер телефона",
+      "node": "input",
+      "type": "text",
+      "class": "inp",
+      "attributes": {
+        "client_data": ""
+      },
+      "required": true,
+      "prompt": "<a href='https://my.telegram.org/auth'>https://my.telegram.org/auth</a>",
+      "pattern": ""
+    },
+    "add_userbot": {
+      "text": "Добавить",
+      "node": "button",
+      "class": "btn",
+      "actions": {
+        "click": "sendRequestAddUserBot()"
+      }
+    },
+    "add_userbot_area_end": {
+      "node": "splitter_end"
+    },
+    "userbots": {
+      "id": "userbots",
+      "title": "Список юзерботов",
+      "node": "table",
+      "class": "tbl",
+      "checkable": true,
+      "data": "request:get_userbots",
+      "actions": {
+        "save": {
+          "text": "Сохранить",
+          "func": "test()"
+        },
+        "del": {
+          "text": "Удалить",
+          "func": "test()"
+        },
+        "activate": {
+          "text": "Активировать",
+          "func": "buildConfirmFields(getTableRowsData('userbots'))"
+        }
+      },
+      "headers": {
+        "Название": {
+          "type": "str",
+          "editable": true
+        },
+        "Api_id": {
+          "type": "int",
+          "editable": true
+        },
+        "Api_hash": {
+          "type": "str",
+          "editable": true
+        },
+        "Номер телефона": {
+          "type": "str",
+          "editable": true
+        },
+        "Статус": {
+          "type": "str",
+          "editable": false
+        },
+        "Активирован": {
+          "type": "bool",
+          "editable": false,
+          "true": "Да",
+          "false": "Нет"
+        }
+      }
+    }
+  }
+}

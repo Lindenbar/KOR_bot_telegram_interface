@@ -1,0 +1,70 @@
+{
+  "class": "menu",
+  "title": "Рассылка",
+  "type": "settings",
+  "items": {
+    "data": {
+      "title": "Источник данных с пользователями",
+      "node": "select_switch",
+      "class": "swh",
+      "options": [
+        "Файл .xls",
+        "Файл .xlsx",
+        "Файл .csv",
+        "База данных",
+        "Ручной ввод"
+      ],
+      "choices": [
+        {
+          "files_xls": {
+            "title": "Выберите файл .xls",
+            "node": "select",
+            "class": "slt",
+            "options": "request:get_result_files_data/users/xls",
+            "required": true,
+            "prompt": "Chat identification"
+          }
+        },
+        {
+          "files_xlsx": {
+            "title": "Выберите файл .xlsx",
+            "node": "select",
+            "class": "slt",
+            "options": "request:get_result_files_data/users/xlsx",
+            "required": true,
+            "prompt": "Chat identification"
+          }
+        },
+        {
+          "files_csv": {
+            "title": "Выберите файл .csv",
+            "node": "select",
+            "class": "slt",
+            "options": "request:get_result_files_data/users/csv",
+            "required": true,
+            "prompt": "Chat identification"
+          }
+        },
+        {
+          "database": {
+            "title": "Выберите данные из БД",
+            "node": "select",
+            "class": "slt",
+            "options": "request:get_result_files_data/users/csv",
+            "required": true,
+            "prompt": "Chat identification"
+          }
+        },
+        {
+          "hand_input": {
+            "text": "Получатели",
+            "node": "puzzle",
+            "class": "pzl",
+            "prompt": "Chat identification",
+            "puzzles": []
+          }
+        }
+      ]
+    }
+  }
+}

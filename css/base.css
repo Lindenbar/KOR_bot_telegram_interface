@@ -5,12 +5,18 @@
   font-family: 'Roboto', sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
+html {
+  background-color: var(--color-light);
+}
 html::-webkit-scrollbar {
   width: 1vw;
-  background-color: #e8f3ff;
+  background-color: var(--color-placeholder-light);
 }
 html::-webkit-scrollbar-thumb {
-  background-color: #2b79c6;
+  background-color: var(--color-primary-shade-darker);
+}
+html input {
+  background-color: var(--color-light);
 }
 .unselectable {
   -webkit-touch-callout: none;

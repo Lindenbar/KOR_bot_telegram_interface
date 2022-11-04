@@ -32,8 +32,21 @@
       "prompt": "Chat identification",
       "pattern": ""
     },
+    "result_name": {
+      "placeholder": "Название результата",
+      "node": "input",
+      "type": "text",
+      "class": "inp",
+      "required": false,
+      "prompt": "В",
+      "pattern": ""
+    },
+    "message_area": {
+      "node": "splitter",
+      "title": "Область сообщения"
+    },
     "caption": {
-      "text": "Парсить подписи",
+      "text": "подпись",
       "node": "input",
       "type": "checkbox",
       "class": "tgl",
@@ -41,12 +54,62 @@
       "prompt": "Parse captions"
     },
     "text": {
-      "text": "Парсить текст",
+      "text": "текст",
       "node": "input",
       "type": "checkbox",
       "class": "tgl",
       "active": true,
       "prompt": "Parse text"
+    },
+    "image": {
+      "text": "изображение",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Parse text"
+    },
+    "message_area_end": {
+      "node": "splitter_end"
+    },
+    "output": {
+      "node": "splitter",
+      "title": "Записать результат"
+    },
+    "database": {
+      "text": "в базу данных",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": true,
+      "prompt": "Жопа"
+    },
+    "file_xls": {
+      "text": "в файл&nbsp;<b>.xls</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": false,
+      "prompt": "Жопа"
+    },
+    "file_xlsx": {
+      "text": "в файл&nbsp;<b>.xlsx</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": false,
+      "prompt": "Жопа"
+    },
+    "file_csv": {
+      "text": "в файл&nbsp;<b>.csv</b>",
+      "node": "input",
+      "type": "checkbox",
+      "class": "tgl",
+      "active": false,
+      "prompt": "Жопа"
+    },
+    "output_end": {
+      "node": "splitter_end"
     }
   }
 }
