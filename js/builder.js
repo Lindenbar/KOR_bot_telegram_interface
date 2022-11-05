@@ -203,7 +203,7 @@ async function puzzle(className, text, puzzles, prompt, dataName) {
             let resultPuzzleCond = document.createElement('span');
             resultPuzzleCond.innerHTML = puzzles[puzzle];
             resultPuzzleCond.classList.add('result__cond');
-            resultPuzzleCond.setAttribute('data', puzzle + '___');
+            resultPuzzleCond.setAttribute('data',  `{{${puzzle}}}___`);
             puzzleResult.appendChild(resultPuzzleCond);
             puzzleInput.focus({preventScroll: true});
         }
