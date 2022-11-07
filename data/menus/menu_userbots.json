@@ -1,7 +1,6 @@
 {
   "class": "menu",
   "title": "Юзерботы",
-  "type": "settings",
   "items": {
     "add_userbot_area": {
       "node": "splitter",
